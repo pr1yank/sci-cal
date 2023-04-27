@@ -1,8 +1,7 @@
 from tkinter import *
 import math
 
-import os 
-cmd ='scientific_calculator.py'
+
 
 
 def click(value):
@@ -27,7 +26,7 @@ def click(value):
             answer = math.pi
 
         elif value == 'cosθ':
-            answer = math.cos(math.radians(eval(ex)))
+            answer = math.cos(math.radians(eval(ex)*180/3.14))
 
         elif value == 'tanθ':
             answer = math.tan(math.radians(eval(ex)))
@@ -35,13 +34,10 @@ def click(value):
         elif value == 'sinθ':
             answer = math.sin(math.radians(eval(ex)))
 
-        # elif value == '2π':
-        #     answer = 2 * math.pi
+        elif value == 'EXP':
+            answer = math.exp(eval(ex))
 
 
-
-        # elif value == chr(8731):
-        #     answer = eval(ex) ** (1 / 3)    chr(8731)
 
         elif value == 'x\u02b8':  # 7**2
             entryField.insert(END, '**')
@@ -52,7 +48,7 @@ def click(value):
 
         elif value == 'x\u00B2':
             answer = eval(ex) ** 2
-
+       
         elif value == 'ln':
             answer = math.log2(eval(ex))
 
@@ -77,6 +73,7 @@ def click(value):
 
         elif value == '=':
             answer = eval(ex)
+         
             try:
                 value= eval(entryField.get())
             except Exception as e:
@@ -145,11 +142,11 @@ entryField.grid(row=0, column=0, columnspan=8)
 
 
 
-button_text_list = ["C", "AC", "√", "%", "π", "x\u00B2", "tanθ",
+button_text_list = ["C", "AC", "√", "%", "π", "x\u00B2", "e",
                     "1", "2", "3", "-", "x\u02b8", "x\u00B3", "x!",
-                    "4", "5", "6", "*", "deg", "rad", "log",  
+                    "4", "5", "6", "*", "deg", "EXP", "log",  
                     "7", "8", "9", chr(247), "ln","(", ")",
-                    ".", "0", "+", "=", "sinθ","cosθ","e"] 
+                    ".", "0", "+", "=", "sinθ","cosθ","tanθ"] 
 rowvalue = 1
 columnvalue = 0
 for i in button_text_list:
@@ -163,4 +160,3 @@ for i in button_text_list:
         columnvalue = 0
 
 root.mainloop()
-os.system(cmd)
